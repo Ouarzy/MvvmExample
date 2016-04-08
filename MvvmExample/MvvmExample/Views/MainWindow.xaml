@@ -1,0 +1,19 @@
+﻿<Window x:Class="MvvmExample.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModels="clr-namespace:MvvmExample.ViewModels"
+        xmlns:views="clr-namespace:MvvmExample.Views"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewModels:ChartViewModel}">
+            <views:ChartView></views:ChartView>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModels:ProductViewModel}">
+            <views:ProductView></views:ProductView>
+        </DataTemplate>
+    </Window.Resources>
+    
+    <Grid>
+       <ContentPresenter Content="{Binding CurrentViewModel}"></ContentPresenter>
+    </Grid>
+</Window>
